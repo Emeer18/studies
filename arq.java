@@ -5,23 +5,27 @@ public class arq {
 
     Scanner sc = new Scanner(System.in);
     
-    double delta, x1, x2 = 0;
-    
-    double a = sc.nextDouble();
-    double b = sc.nextDouble();
-    double c = sc.nextDouble();
-    
-    delta = Math.pow(b,2) - 4 * a * c;
-        
-    System.out.println("delta = " + delta);
+    int cobranca = 50;
+    int quantidadeMinutos;    
 
-    x1 = (-b + Math.sqrt(delta)) / (2 * a);
+    System.out.println("Digite a quantidade de minutos.");
+    quantidadeMinutos = sc.nextInt();
 
-    System.out.println("x1 = " + x1);
+    if (quantidadeMinutos > 100) {
 
-    if (delta < 950 && delta < 850){
-        System.out.println("Teste");
+        cobranca += (quantidadeMinutos - 100) * 2;
+        System.out.printf("Valor a pagar : %d", cobranca);
     }
+    
+    if (quantidadeMinutos <= 100) {
+        
+        System.out.printf("Valor a pagar : %d", cobranca);
+
+    }
+      
+    
+
+
 
     sc.close();
     
