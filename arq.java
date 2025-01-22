@@ -18,6 +18,12 @@ public class arq {
     x1 = (-b + Math.sqrt(delta)) / (2 * a);
 
     System.out.println("x1 = " + x1);
+
+    if (delta < 950 && delta < 850){
+        System.out.println("Teste");
+    }
+
+    sc.close();
     
     }
 }
