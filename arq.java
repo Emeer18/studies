@@ -5,27 +5,39 @@ public class arq {
 
     Scanner sc = new Scanner(System.in);
     
-    int cobranca = 50;
-    int quantidadeMinutos;    
+    char a,b,c,d,e,f;
+    String escolha = "";
 
-    System.out.println("Digite a quantidade de minutos.");
-    quantidadeMinutos = sc.nextInt();
+    System.out.println("Digite o dia da semana sendo a para segunda ....");  
+    escolha = sc.next();
 
-    if (quantidadeMinutos > 100) {
-
-        cobranca += (quantidadeMinutos - 100) * 2;
-        System.out.printf("Valor a pagar : %d", cobranca);
-    }
+    switch (escolha) {
+        case "a":
+            
+        System.out.println("Segunda-Feira");
+           
+        break;
     
-    if (quantidadeMinutos <= 100) {
-        
-        System.out.printf("Valor a pagar : %d", cobranca);
-
-    }
-      
+        case "b":
+            
+        System.out.println("Terça-Feira");
+           
+        break;
+        case "c":
+            
+        System.out.println("Quarta-Feira");
+           
+        break;
+        case "d":
+            
+        System.out.println("Quinta-Feira");
+           
+        break;
+        default: 
+            System.out.println("Valor inválido");
+            break;
     
-
-
+    }
 
     sc.close();
     
