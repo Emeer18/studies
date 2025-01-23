@@ -5,41 +5,29 @@ public class arq {
 
     Scanner sc = new Scanner(System.in);
     
-    char a,b,c,d,e,f;
-    String escolha = "";
+    int escolha;
 
-    System.out.println("Digite o dia da semana sendo a para segunda ....");  
-    escolha = sc.next();
+    //System.out.println("Digite o dia da semana sendo a para segunda ....");  
+    //escolha = sc.nextInt();
 
-    switch (escolha) {
-        case "a":
-            
-        System.out.println("Segunda-Feira");
-           
-        break;
+    //int ternario = (escolha > 12) ? 50000 : 2000;
+
+    //System.out.printf("%d", ternario);
     
-        case "b":
-            
-        System.out.println("Terça-Feira");
-           
-        break;
-        case "c":
-            
-        System.out.println("Quarta-Feira");
-           
-        break;
-        case "d":
-            
-        System.out.println("Quinta-Feira");
-           
-        break;
-        default: 
-            System.out.println("Valor inválido");
-            break;
-    
+    //sc.close();
+    System.out.println("Digite um número : ");
+    escolha = sc.nextInt();
+    System.out.println("Digite a idade : ");
+    int idade = sc.nextInt();
+
+    String parImpar = (escolha %2 == 0) ? "par" : "impar";
+
+    System.out.printf("O número é %s\n", parImpar);
+
+    String maiorIdade = (idade >= 18) ? "maior de idade" : "menor de idade";
+
+    System.out.printf("Esta pessoa é %s", maiorIdade);
+
     }
 
-    sc.close();
-    
-    }
 }
