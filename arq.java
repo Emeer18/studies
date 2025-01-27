@@ -5,9 +5,8 @@ public class arq {
 
     Scanner sc = new Scanner(System.in);
     
-    int senha = 0;
-    int tentativas = 0;
-    boolean validaSenha = false;
+    int a,b,c;
+
     //System.out.println("Digite o dia da semana sendo a para segunda ....");  
     //escolha = sc.nextInt();
 
@@ -35,39 +34,90 @@ public class arq {
        // escolha = sc.nextInt();
         
     //}
-    for (tentativas = 2 ; senha != 2332 ; tentativas -- ){
+    //for (tentativas = 2 ; senha != 2332 ; tentativas -- ){
         
-        System.out.println("Digite a senha\n");
-        senha = sc.nextInt();
-        System.out.printf("Senha incorreta, tentativas restantes : %d\n", tentativas);
+        //System.out.println("Digite a senha\n");
+        //senha = sc.nextInt();
+        //System.out.printf("Senha incorreta, tentativas restantes : %d\n", tentativas);
         
-        if (senha == 2332) {
+        //if (senha == 2332) {
 
-            validaSenha = true;
+        //    validaSenha = true;
             
-        }
+        //}
 
-        if (tentativas == 0) {
+       // if (tentativas == 0) {
 
-            System.out.println("Acesso negado. Senha bloqueada\n");
-            break;
+        //    System.out.println("Acesso negado. Senha bloqueada\n");
+       //     break;
                 
-        }
-    }
+     //   }
+    // }
 
-    if (validaSenha == true) {
+    //if (validaSenha == true) {
 
-        System.out.println("Entrada validada.");
+     //   System.out.println("Entrada validada.");
         
-    }
+    //}
 
-    System.out.println("Encerrado.");
+   // System.out.println("Encerrado.");
 
     
+    //do{
+
+     //   System.out.println("Digite a quantia de graus que deseja converter : ");
+     //   grausCelcius = sc.nextInt();
+     //   fahrenheit = 9 * grausCelcius / 5 + 32;
+     //   System.out.printf("Fahrenheit : %d\n", fahrenheit);
+     //   System.out.println("Deseja uma nova consulta? s/n");
+     //   sc.nextLine();
+     //  consulta = sc.nextLine();
+     //   consulta2 = consulta.charAt(0);
+
+    //} while(consulta2 == 's');
+
+    //System.out.println("Você saiu do aplicativo.");
+
+    a = sc.nextInt();
+    b = sc.nextInt();
+    c = sc.nextInt();
+
+    int moreHigher = max(a, b, c);
+
+    showResult(moreHigher);
+
     sc.close();
 
   
 
     }
+
+    public static int max(int f, int g, int h){
+
+        int aux = 0;
+
+        if (f > g && f > h) {
+
+            aux = f;
+        }
+
+        else if (g > f && g > h) {
+                
+        aux = g;
+
+        }
+
+        else {
+
+        aux = h;
+    
+        }
+        return aux;
+    }
+
+     public static void showResult (int value){
+
+        System.out.printf("Highuer = %d", value);
+     }
 
 }
