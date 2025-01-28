@@ -1,12 +1,13 @@
 import java.util.Scanner;
-
+import entities.Triangle;
 import javax.lang.model.util.ElementScanner6;
 
 public class arq {
+
     public static void main(String[] args){
 
     Scanner sc = new Scanner(System.in);
-    
+    Double x = new Triangle();
     double xA, xB, xC, yA, yB, yC;
     
     System.out.println("Enter the measures of area X");
@@ -28,7 +29,7 @@ public class arq {
 
         System.out.printf("The Area Height é : %.2f\n" , XArea);
     }
-        else {
+        else { 
         
         System.out.printf("The Area Height ér : %.2f\n" , YArea);
     }
