@@ -1,6 +1,5 @@
+package entities;
 import java.util.Scanner;
-import entities.Triangle;
-import javax.lang.model.util.ElementScanner6;
 
 public class arq {
 
@@ -20,20 +19,13 @@ public class arq {
     y.b = sc.nextDouble();
     y.c = sc.nextDouble();
 
-    double xP = (xA + xB + xC) / 2.0;
-    double XArea = Math.sqrt(xP * (xP - xA) * (xP - xB) * (xP - xC));
+    x.p = (x.a + x.b + x.c) / 2.0;
+    double XArea = Math.sqrt(x.p * (x.p - x.a) * (x.p - x.b) * (x.p - x.c));
 
-    double yP = (yA + yB + yC) / 2.0;
-    double YArea= Math.sqrt(yP * (yP - yA) * (yP - yB) * (yP - yC));
+    y.p = (y.a + y.b + y.c) / 2.0;
+    double YArea= Math.sqrt(y.p * (y.p - y.a) * (y.p - y.b) * (y.p - y.c));
     
-    if (XArea > YArea) {
-
-        System.out.printf("The Area Height é : %.2f\n" , XArea);
-    }
-        else { 
-        
-        System.out.printf("The Area Height ér : %.2f\n" , YArea);
-    }
+    Triangle.imprimeArea(XArea, YArea);
 
     sc.close();
 
