@@ -7,17 +7,18 @@ public class arq {
     public static void main(String[] args){
 
     Scanner sc = new Scanner(System.in);
-    Double x = new Triangle();
-    double xA, xB, xC, yA, yB, yC;
-    
+    Triangle x, y;
+    x = new Triangle();    
+    y = new Triangle();
+
     System.out.println("Enter the measures of area X");
-    xA = sc.nextDouble();
-    xB = sc.nextDouble();
-    xC = sc.nextDouble();
+    x.a = sc.nextDouble();
+    x.b = sc.nextDouble();
+    x.c = sc.nextDouble();
     System.out.println("Enter the measures of area Y");
-    yA = sc.nextDouble();
-    yB = sc.nextDouble();
-    yC = sc.nextDouble();
+    y.a = sc.nextDouble();
+    y.b = sc.nextDouble();
+    y.c = sc.nextDouble();
 
     double xP = (xA + xB + xC) / 2.0;
     double XArea = Math.sqrt(xP * (xP - xA) * (xP - xB) * (xP - xC));
