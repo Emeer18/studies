@@ -1,5 +1,4 @@
 package entities;
-
 import java.util.Scanner;
 
 public class arq {
@@ -8,46 +7,15 @@ public class arq {
 
         Scanner sc = new Scanner(System.in);
 
-        Product product;
-        product = new Product();
-        char choice = '0';
+        Rectangle rectangle;
 
-        System.out.println("Enter Product, Price, and quantity in stock.");
+        rectangle = new Rectangle();
 
-        product.name = sc.nextLine();
-        product.price = sc.nextDouble();
-        product.quantity = sc.nextDouble();
-        sc.nextLine();
-        product.totalValueInStock();
-        System.out.println();
-        System.out.printf(product.toString());
+        System.out.println("Enter rectangle width and height");
+        rectangle.width = sc.nextDouble();
+        rectangle.height = sc.nextDouble();
 
-        do {
-            System.out.println();
-            System.out.println("\nEnter 1 to add product, 2 to remove product, or 3 to exit.");
-
-            String choiceTotal = sc.nextLine();
-            choice =  choiceTotal.charAt(0);
-
-            if (choice == '1') {
-                System.out.println();
-                System.out.println("Enter the quantity to be added.");
-                int quantity = sc.nextInt();
-                sc.nextLine();
-                product.addProduct(quantity);
-
-            } else if (choice == '2') {
-
-                System.out.println();
-                System.out.println("Enter the quantity to be removed.");
-                int quantity = sc.nextInt();
-                sc.nextLine();
-                product.removeProducts(quantity);
-
-            }
-        } while (choice != '3');
-
-        System.out.printf(product.toString());
+        System.out.println(rectangle.toString());
 
         sc.close();
     }
