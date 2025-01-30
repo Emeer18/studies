@@ -1,34 +1,54 @@
 package entities;
+
 import java.util.Scanner;
 
 public class arq {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-    Scanner sc = new Scanner(System.in);
-    Triangle x, y;
-    x = new Triangle();    
-    y = new Triangle();
+        Scanner sc = new Scanner(System.in);
 
-    System.out.println("Enter the measures of area X");
+        Product product;
+        product = new Product();
+        char choice = '0';
 
-    x.a = sc.nextDouble();
-    x.b = sc.nextDouble();
-    x.c = sc.nextDouble();
+        System.out.println("Enter Product, Price, and quantity in stock.");
 
-    System.out.println("Enter the measures of area Y");
-    
-    y.a = sc.nextDouble();
-    y.b = sc.nextDouble();
-    y.c = sc.nextDouble();
+        product.name = sc.nextLine();
+        product.price = sc.nextDouble();
+        product.quantity = sc.nextDouble();
+        sc.nextLine();
+        product.totalValueInStock();
+        System.out.println();
+        System.out.printf(product.toString());
 
-    double XArea = x.area();
-    double YArea= y.area();
-    
-    Triangle.imprimeArea(XArea, YArea);
+        do {
+            System.out.println();
+            System.out.println("\nEnter 1 to add product, 2 to remove product, or 3 to exit.");
 
-    sc.close();
+            String choiceTotal = sc.nextLine();
+            choice =  choiceTotal.charAt(0);
 
+            if (choice == '1') {
+                System.out.println();
+                System.out.println("Enter the quantity to be added.");
+                int quantity = sc.nextInt();
+                sc.nextLine();
+                product.addProduct(quantity);
+
+            } else if (choice == '2') {
+
+                System.out.println();
+                System.out.println("Enter the quantity to be removed.");
+                int quantity = sc.nextInt();
+                sc.nextLine();
+                product.removeProducts(quantity);
+
+            }
+        } while (choice != '3');
+
+        System.out.printf(product.toString());
+
+        sc.close();
     }
-
 }
