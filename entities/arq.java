@@ -5,47 +5,37 @@ public class arq{
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
+        Bank bank = null;
+        int escolha = 0;
 
-        Product product;
-        
-        char choice = '0';
-
-        System.out.println("Enter Product, Price, and quantity in stock.");
-    
-        String name = sc.nextLine();
-        double price = sc.nextDouble();
-        int quantity = sc.nextInt();
+        System.out.println("Digite sua conta, o nome do titular." );
+        int account = sc.nextInt();
         sc.nextLine();
-        product = new Product(name, price, quantity);
-        product.totalValueInStock();
+        String name = sc.nextLine();
+        
 
-        System.out.printf(product.toString());
-do{
-            System.out.println("\nEnter 1 to add product, 2 to remove product, or 3 to exit.");
-            String choiceTotal = sc.nextLine();
-            choice =  choiceTotal.charAt(0);
+        do{
 
+        System.out.println("Digite 1 para depositar um valor inicial e 2 para iniciar sem um depósito." );
+        escolha = sc.nextInt();
+        sc.nextLine();
+        if (escolha == 1 ) {
 
-            if (choice == '1') {
-                System.out.println();
-                System.out.println("Enter the quantity to be added.");
-                quantity = sc.nextInt();
-                sc.nextLine();
-                product.addProduct(quantity);
-
-            } else if (choice == '2') {
-                System.out.println();
-                System.out.println("Enter the quantity to be removed.");
-                quantity = sc.nextInt();
-                sc.nextLine();
-                product.removeProducts(quantity);
-            }
-
+            System.out.println("Insira o valor a ser depositado.");
+            double deposit = sc.nextDouble();
+            bank = new Bank(name, account, deposit);
+            bank.showData();
+            
         }
-        while (choice != '3');
 
-        System.out.printf(product.toString());
-        sc.close();
+        if (escolha == 2) {
+
+            bank = new Bank (name, account);
+            bank.showData();
+            
         }
+    } while(escolha != 1 && escolha != 2);
+
 
     }
+}
