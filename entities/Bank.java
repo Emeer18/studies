@@ -1,60 +1,54 @@
 package entities;
+
 public class Bank {
     
-    public String name;
-    private int numberAccount;
-    private double saldo;
+    private String name;
+    private int accountNumber;
+    private double balance;
 
-    public double getSaldo(){
-
-        return saldo;
-
+    public double getBalance() {
+        return balance;
     }
 
-    public Bank(String name, int numberAccount, double saldo){
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public Bank(String name, int accountNumber, double balance) {
         this.name = name;
-        this.numberAccount = numberAccount;
-        this.saldo = saldo;
-
+        this.accountNumber = accountNumber;
+        this.balance = balance;
     }
 
-    public Bank(String name, int numberAccount){
-
+    public Bank(String name, int accountNumber) {
         this.name = name;
-        this.numberAccount = numberAccount;
-
+        this.accountNumber = accountNumber;
     }
 
-    public double inittialDeposit(double deposit){
-
-        saldo += saldo + deposit;
-        return saldo;
+    public double initialDeposit(double deposit) {
+        balance += balance + deposit;
+        return balance;
     }
 
-    public double deposit(double deposit){
-
-        saldo += saldo + deposit;
-        return saldo;
-
+    public void deposit(double deposit) {
+        setBalance(this.balance + deposit);
     }
 
-    public double saque(double saque){
-
-        saldo += saldo - saque - 5.0;
-        return saldo;
-
+    public void withdraw(double withdrawal) {
+        setBalance(this.balance - withdrawal - 5.0);
     }
 
-    public void showData(){
-
-        System.out.println("Nome : " + name 
-                                     + "\nConta : " 
-                                     + numberAccount 
-                                     + "\nSaldo : " 
-                                     + saldo);
-
+    public void resetChoice(int choice) {
+        choice = 0;
     }
 
-
+    public void showData() {
+        System.out.println("Name: " + name 
+            + "\nAccount: " + accountNumber 
+            + "\nBalance: " + balance);
     }
+}
