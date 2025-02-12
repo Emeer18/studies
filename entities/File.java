@@ -7,31 +7,25 @@ public class File {
         Scanner sc = new Scanner(System.in);
         
         int n = sc.nextInt();
+        int[] vect = new int [n];
+   
 
-        double sum = 0;
-
-        Product[] vect = new Product[n];
-        System.out.println("Enter the products and their prices.");
-
-
-        for(int i = 0; i < vect.length; i++){
-
-            sc.nextLine();
-            String name = sc.nextLine();
-            double price = sc.nextDouble();
-            vect[i] = new Product(name, price);
- 
-        }
-        
-        for(int i = 0; i < vect.length; i++){
-
-            sum += vect[i].getPrice();            
-
+        for(int i = 0; i < vect.length ; i++){
+            System.out.println("Digite um número.");
+            vect[i] = sc.nextInt();
         }
 
-        double avg = sum / n;
-        System.out.printf("AVERAGE = %.2f", avg);
+        System.out.println("Negative numbers : ");
 
+        for(int i = 0; i < vect.length ; i++){
+
+            if (vect[i] < 0) {
+           
+            System.out.println(vect[i]);
+            
+            }
+            
+        }
         sc.close();
     }
 }
