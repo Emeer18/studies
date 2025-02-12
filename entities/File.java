@@ -7,18 +7,26 @@ public class File {
         Scanner sc = new Scanner(System.in);
         
         int n = sc.nextInt();
+
         double sum = 0;
 
-        double[] vect = new double[n];
+        Product[] vect = new Product[n];
+        System.out.println("Digite os produtos e seus valores.");
 
-        for (int i = 0; i < n; i++){
-            
-            System.out.println("Digita aí");
-            vect[i] = sc.nextDouble();
+
+        for(int i = 0; i < vect.length; i++){
+
+            sc.nextLine();
+            String name = sc.nextLine();
+            double price = sc.nextDouble();
+            vect[i] = new Product(name, price);
+ 
         }
+        
+        for(int i = 0; i < vect.length; i++){
 
-        for(int i = 0; i < n; i++){
-            sum += vect [i];
+            sum += vect[i].getPrice();            
+
         }
 
         double avg = sum / n;
