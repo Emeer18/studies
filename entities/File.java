@@ -11,7 +11,7 @@ public class File {
         double sum = 0;
 
         Product[] vect = new Product[n];
-        System.out.println("Digite os produtos e seus valores.");
+        System.out.println("Enter the products and their prices.");
 
 
         for(int i = 0; i < vect.length; i++){
