@@ -1,20 +1,58 @@
-import entities.Order;
+import entities.Department;
+import entities.HourContract;
+import entities.Worker;
+import entities.WorkerLevel;
+
+import java.text.DateFormat;
 import java.util.Date;
-import entities.StatusOrder;
+import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
 
-        Order order = new Order(1080, new Date(), StatusOrder.PENDING_PAYMENT);
+        Scanner sc = new Scanner(System.in);
+                
+        System.out.print("Enter department's name: ");
+        String department = sc.nextLine();
+        System.out.println("Enter worker data:");
+        System.out.print("Name: ");
+        String name = sc.nextLine();   
+        System.out.print("Level: ");
+        String level = sc.nextLine();
+        WorkerLevel lv = WorkerLevel.valueOf(level);
+        System.out.print("Base salary: ");
+        double baseSalary = sc.nextDouble();
+        System.out.print("How many contracts to this worker? ");
+        int n = sc.nextInt();
 
-        System.out.println(order);
+        for (int i = 1; i <= n; i++) {
 
-        StatusOrder os1 = StatusOrder.DELIVERED;
+            HourContract hourContract = new HourContract();
+            DateTimeFormatter frmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        StatusOrder os2 = StatusOrder.valueOf("DELIVERED"); // converte uma string para um enum
+            System.out.println("Enter contract #" + i + " data:");
+            System.out.print("Date (DD/MM/YYYY): ");
+            sc.nextLine();
+            String dateString = sc.nextLine();
+            hourContract.setDate(null);
+            
+            System.out.print("Value per hour: ");
+            double valuePerHour = sc.nextDouble();
+            System.out.print("Duration (hours): ");
+            int hours = sc.nextInt();
 
-        System.out.println(os1);
-        System.out.println(os2);    
+            Worker worker = new Worker(name, lv, baseSalary);
 
+        }
+        
+        Worker worker = new Worker(name, lv, baseSalary);
+        System.out.println(worker.getName());
+        System.out.println(worker.getLevel());
+        System.out.println(worker.getBaseSalary());
+
+
+
+        sc.close();
     }
 }
