@@ -1,12 +1,10 @@
-import entities.Department;
 import entities.HourContract;
 import entities.Worker;
 import entities.WorkerLevel;
-
-import java.text.DateFormat;
-import java.util.Date;
+import entities.Department; 
 import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,34 +21,42 @@ public class Main {
         WorkerLevel lv = WorkerLevel.valueOf(level);
         System.out.print("Base salary: ");
         double baseSalary = sc.nextDouble();
+
+        Worker workers = new Worker(name, lv, baseSalary, new Department(department));
+
         System.out.print("How many contracts to this worker? ");
         int n = sc.nextInt();
 
         for (int i = 1; i <= n; i++) {
 
             HourContract hourContract = new HourContract();
-            DateTimeFormatter frmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
             System.out.println("Enter contract #" + i + " data:");
             System.out.print("Date (DD/MM/YYYY): ");
             sc.nextLine();
             String dateString = sc.nextLine();
-            hourContract.setDate(null);
+            hourContract.setDate(dateString);
             
             System.out.print("Value per hour: ");
             double valuePerHour = sc.nextDouble();
             System.out.print("Duration (hours): ");
             int hours = sc.nextInt();
 
-            Worker worker = new Worker(name, lv, baseSalary);
+            HourContract contract = new HourContract(hourContract.getDate(), valuePerHour, hours);  
+            workers.addContract(contract);
 
         }
-        
-        Worker worker = new Worker(name, lv, baseSalary);
-        System.out.println(worker.getName());
-        System.out.println(worker.getLevel());
-        System.out.println(worker.getBaseSalary());
 
+        System.out.println();
+        System.out.print("Enter month and year to calculate income (MM/YYYY): ");
+        sc.nextLine();
+        String monthAndYear = sc.next();
+        int month = Integer.parseInt(monthAndYear.substring(0, 2));
+        int year = Integer.parseInt(monthAndYear.substring(3));
+        System.out.println("Name: " + workers.getName());
+        System.out.println("Department: " + workers.getDepartment().getName());
+        System.out.println("Income for " + monthAndYear + ": " + String.format("%.2f", workers.income(year, month)));
+        
 
 
         sc.close();

@@ -1,6 +1,5 @@
 package entities;
 import java.util.Date;
-import java.time.format.DateTimeFormatter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -24,12 +23,11 @@ public class HourContract {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String dateString = sdf.format(date);
         try {
-            this.date = sdf.parse(dateString);
+            this.date = sdf.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -52,8 +50,7 @@ public class HourContract {
     }
 
     public double totalValue() {
-        Double totalValues = valuePerHour * hours + worker.getBaseSalary() ;
-        return totalValues;
+        return valuePerHour * hours;
     }
 
 }
