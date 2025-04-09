@@ -1,62 +1,37 @@
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
 
-import entities.Order;
-import entities.Enums.OrderStatus;
-import entities.Client;
-import entities.Product; 
-import entities.OrderItem;
+import Heritage.Account;
+import Heritage.BusinessAccount;
+import Heritage.SavingAccount;
+
+import java.text.SimpleDateFormat;
 
 public class Program {
     public static void main(String[] args) throws java.text.ParseException {
 
     Scanner sc = new Scanner(System.in);
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     
-    System.out.println("Enter client data:");
-    System.out.print("Name: ");
-    String name = sc.nextLine();
-    System.out.print("Email: ");
-    String email = sc.nextLine();
-    System.out.print("Birth date (DD/MM/YYYY): ");
-    String birthDate = sc.nextLine();
-    Client client = new Client(name, email, birthDate);
+    Account acc = new Account(1001, "Alex", 0.0);
+    BusinessAccount bacc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
+    Account sacc = new SavingAccount(1003, "Bob", 0.0, 0.01);
 
-    System.out.println("Enter order data:");
-    System.out.print("Status: ");
-    OrderStatus status = OrderStatus.valueOf(sc.nextLine());
-    Order order = new Order(sdf.parse("21/06/2018 13:05:44"), status);
-    order.setClient(client);
+    Account acc1 = bacc; // Upcasting
+    BusinessAccount bacc1 = (BusinessAccount)sacc; 
 
-    System.out.print("How many items to this order? ");
-    int n = sc.nextInt();
-
-    for (int i = 1; i <= n; i++) {
-        System.out.println("Enter #" + i + " item data:");
-        System.out.print("Product name: ");
-        sc.nextLine();
-        String productName = sc.nextLine();
-        System.out.print("Product price: ");
-        double productPrice = sc.nextDouble();
-        System.out.print("Quantity: ");
-        int quantity = sc.nextInt();
-        order.addItem(new OrderItem(quantity, productPrice, new Product(productName, productPrice)));
+    if(sacc instanceof BusinessAccount) {
+        BusinessAccount bacc2 = (BusinessAccount) sacct; // Downcasting
+        bacc2.loan(200.0);
+        System.out.println("Loan1!");
     }
-
-    System.out.println();
-    StringBuilder sb = new StringBuilder();
-    sb.append("ORDER SUMMARY:\n");
-    sb.append("Order moment: ").append(sdf.format(order.getMoment())).append("\n");
-    sb.append("Order status: ").append(order.getStatus()).append("\n");
-    sb.append("Client: ").append(client).append("\n");
-    sb.append("Order items:\n");
-    System.out.println(sb.toString());
-
-    for (OrderItem item : order.getItems()) {
-        System.out.println(item);
+    if(sacc  instanceof SavingAccount) {
+        BusinessAccount bacc2 = (BusinessAccount) sacc; // Downcasting
+        bacc2.loan(200.0);
+        System.out.println("Loan2!");
+    } else {
+        System.out.println("Not a business account");
     }
     
-    System.out.println("Total price: $" + String.format("%.2f", order.total()));
+
     sc.close();
     }
 }
