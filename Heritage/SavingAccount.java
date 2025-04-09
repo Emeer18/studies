@@ -1,8 +1,12 @@
 package Heritage;
 
-public class SavingAccount extends Account {
+public final class SavingAccount extends Account {
     
     private Double interestRate;
+
+    public SavingAccount(int number, String holder, double balance) {
+        super(number, holder, balance);
+    }
 
     public SavingAccount() {
         super();
@@ -23,6 +27,11 @@ public class SavingAccount extends Account {
 
     public void updateBalance() {
         balance += balance * interestRate;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        balance -= amount;
     }
 
 }

@@ -11,26 +11,21 @@ public class Program {
 
     Scanner sc = new Scanner(System.in);
     
-    Account acc = new Account(1001, "Alex", 0.0);
-    BusinessAccount bacc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
-    Account sacc = new SavingAccount(1003, "Bob", 0.0, 0.01);
+    Account acc = new Account(1001, "Alex", 500.0);
+    acc.withdraw(200.0);
+    System.out.println("Account: " + acc.getNumber() + ", Holder: " + acc.getHolder() + ", Balance: " + String.format("%.2f", acc.getBalance()));
+    System.out.println();
+    Account acc2 = new SavingAccount(1002, "Maria", 500.0);
+    acc2.withdraw(200.0);
+    System.out.println("Account: " + acc2.getNumber() + ", Holder: " + acc2.getHolder() + ", Balance: " + String.format("%.2f", acc2.getBalance()));
+    System.out.println();
 
-    Account acc1 = bacc; // Upcasting
-    BusinessAccount bacc1 = (BusinessAccount)sacc; 
+    Account acc3 = new BusinessAccount(1003, "Bob", 500.0, 400.0);
+    acc3.withdraw(200.0);
+    System.out.println("Account: " + acc3.getNumber() + ", Holder: " + acc3.getHolder() + ", Balance: " + String.format("%.2f", acc3.getBalance()));
+    System.out.println();  
 
-    if(sacc instanceof BusinessAccount) {
-        BusinessAccount bacc2 = (BusinessAccount) sacct; // Downcasting
-        bacc2.loan(200.0);
-        System.out.println("Loan1!");
-    }
-    if(sacc  instanceof SavingAccount) {
-        BusinessAccount bacc2 = (BusinessAccount) sacc; // Downcasting
-        bacc2.loan(200.0);
-        System.out.println("Loan2!");
-    } else {
-        System.out.println("Not a business account");
-    }
-    
+
 
     sc.close();
     }
